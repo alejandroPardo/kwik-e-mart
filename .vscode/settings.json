@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "ruby.rubocop.onSave": true,
+    "editor.formatOnSaveTimeout": 5000,
+    "files.associations": {
+        "*.erb": "erb"
+    },
+}
