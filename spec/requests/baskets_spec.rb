@@ -47,7 +47,7 @@ describe 'Baskets API' do
     end
   end
 
-  path '/empty_basket' do
+  path '/baskets/empty_basket' do
     delete 'Empty the entire basket' do
       tags 'Basket'
       produces 'application/json'

@@ -8,7 +8,7 @@ FactoryBot.define do
     end
 
     after(:build) do |invoice|
-      invoice.invoice_items << FactoryBot.build(:invoice_item, invoice:) if invoice.invoice_items.empty?
+      invoice.items << FactoryBot.build(:invoice_item, invoice:) if invoice.items.empty?
     end
   end
 end

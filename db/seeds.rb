@@ -59,7 +59,7 @@ promotion_discounts = [
   { promotion_id: promotion_ids['Buy One Get One Free - Green Tea'], discount_type: 'free_product',
     discount_value: '1' },
   { promotion_id: promotion_ids['Bulk Discount - Strawberries'], discount_type: 'fixed_price', discount_value: '4.50' },
-  { promotion_id: promotion_ids['Coffee Addict Discount'], discount_type: 'percentage', discount_value: '33.33' },
+  { promotion_id: promotion_ids['Coffee Addict Discount'], discount_type: 'percentage', discount_value: '33' },
   { promotion_id: promotion_ids['Buy Three Get One Free - Apples'], discount_type: 'free_product', discount_value: '1' }
 ]
 

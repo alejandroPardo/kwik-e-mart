@@ -2,8 +2,7 @@ class BasketsController < ApplicationController
   include BasketsHelper
   # GET /basket
   def index
-    @products = current_basket.items
-    render json: @products
+    render json: calculate_price
   end
 
   # PATCH/PUT /basket/1

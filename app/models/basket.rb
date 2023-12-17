@@ -20,8 +20,4 @@ class Basket
   def empty
     @items = {}
   end
-
-  def total_price
-    # Logic to calculate total price of items in the cart
-  end
 end

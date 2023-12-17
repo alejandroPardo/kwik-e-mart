@@ -96,7 +96,7 @@
         }
       }
     },
-    "/empty_basket": {
+    "/baskets/empty_basket": {
       "delete": {
         "summary": "Empty the entire basket",
         "tags": [
@@ -143,6 +143,23 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/invoices": {
+      "post": {
+        "summary": "Creates an invoice from the current basket",
+        "tags": [
+          "Invoices"
+        ],
+        "description": "Fails to create an invoice due to no items in the current basket.",
+        "responses": {
+          "201": {
+            "description": "invoice created"
+          },
+          "422": {
+            "description": "no items in the basket"
           }
         }
       }
