@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_06_191217) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_16_143722) do
   create_table "invoice_items", force: :cascade do |t|
     t.integer "invoice_id", null: false
     t.integer "product_id", null: false
@@ -37,6 +37,36 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_06_191217) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "promotion_conditions", force: :cascade do |t|
+    t.integer "promotion_id", null: false
+    t.integer "condition_type", default: 0
+    t.string "condition_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promotion_id"], name: "index_promotion_conditions_on_promotion_id"
+  end
+
+  create_table "promotion_discounts", force: :cascade do |t|
+    t.integer "promotion_id", null: false
+    t.integer "discount_type", default: 0
+    t.decimal "discount_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promotion_id"], name: "index_promotion_discounts_on_promotion_id"
+  end
+
+  create_table "promotions", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "invoice_items", "invoices"
   add_foreign_key "invoice_items", "products"
+  add_foreign_key "promotion_conditions", "promotions"
+  add_foreign_key "promotion_discounts", "promotions"
 end
