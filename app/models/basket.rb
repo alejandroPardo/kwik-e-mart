@@ -1,4 +1,5 @@
 class Basket
+  include Singleton
   attr_reader :items
 
   def initialize(items = {})
