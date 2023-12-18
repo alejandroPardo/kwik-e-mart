@@ -148,6 +148,32 @@
       }
     },
     "/invoices": {
+      "get": {
+        "summary": "Retrieves an invoice",
+        "tags": [
+          "Invoices"
+        ],
+        "responses": {
+          "200": {
+            "description": "invoice found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "summary": "Creates an invoice from the current basket",
         "tags": [

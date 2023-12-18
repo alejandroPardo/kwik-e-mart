@@ -13,7 +13,7 @@
 ActiveRecord::Schema[7.1].define(version: 2023_12_16_143722) do
   create_table "invoice_items", force: :cascade do |t|
     t.integer "invoice_id", null: false
-    t.integer "product_id", null: false
+    t.integer "product_id"
     t.integer "quantity"
     t.decimal "unit_price", precision: 10, scale: 2
     t.datetime "created_at", null: false
@@ -65,8 +65,4 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_16_143722) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "invoice_items", "invoices"
-  add_foreign_key "invoice_items", "products"
-  add_foreign_key "promotion_conditions", "promotions"
-  add_foreign_key "promotion_discounts", "promotions"
 end

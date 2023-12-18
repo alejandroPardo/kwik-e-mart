@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :products
   resources :promotions
 
-  resources :invoices, only: %i[show create]
+  resources :invoices, only: %i[show index create]
   resources :baskets, as: :basket, only: %i[index update destroy] do
     delete :empty_basket, on: :collection
   end

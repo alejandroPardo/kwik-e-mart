@@ -21,6 +21,21 @@ describe 'Invoices API' do
   end
 
   path '/invoices' do
+    get 'Retrieves an invoice' do
+      tags 'Invoices'
+      produces 'application/json'
+      response '200', 'invoice found' do
+        schema type: :object,
+               properties: {
+                 id: { type: :integer }
+               },
+               required: ['id']
+
+        let(:id) { Invoice.create(id: '001').id }
+        run_test!
+      end
+    end
+
     post 'Creates an invoice from the current basket' do
       tags 'Invoices'
       consumes 'application/json'

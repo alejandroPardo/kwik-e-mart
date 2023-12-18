@@ -11,6 +11,11 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def index
+    @invoices = Invoice.all
+    render json: @invoices
+  end
+
   # POST /invoices
   def create
     basket = calculate_price
