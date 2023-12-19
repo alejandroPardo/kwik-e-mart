@@ -1,8 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Basket, type: :model do
-  let(:basket) { Basket.new }
+  let(:basket) { Basket.instance }
   let(:product) { FactoryBot.create(:product, name: 'Coffee', price: 11.23) }
+
+  after(:each) do
+    basket.empty
+  end
 
   it 'should add product to basket' do
     basket.add_item(product)

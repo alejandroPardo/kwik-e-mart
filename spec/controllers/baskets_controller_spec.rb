@@ -8,6 +8,11 @@ RSpec.describe BasketsController, type: :request do
 
   after do
     Product.destroy_all
+    controller.current_basket.empty
+  end
+
+  after(:each) do
+    controller.current_basket.empty
   end
 
   # GET Index - Show basket contents
