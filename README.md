@@ -48,6 +48,53 @@ rails server
 
 6. **Access the Web App at:** [http://localhost:3000/api-docs/index.html](http://localhost:3000/api-docs/index.html)
 
+7. **Dockerized Application:**
+
+Before using the dockerized application, changes must be made to the `production.rb` and `puma.rb`
+
+In `puma.rb` (port can be changed. it is just an example):
+
+```bash
+ssl_bind '0.0.0.0', '9292', {
+  key: 'route/to/cert/key',
+  cert: 'route/to/cert'
+}
+port ENV.fetch("PORT") { 9292 }
+```
+
+In `production.rb`:
+
+```bash
+config.hosts = [
+    "example.com",     # Allow requests from example.com, remember the port here if needed
+    /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
+]
+```
+
+In `swagger.json` add your server to the list of servers:
+
+```bash
+"servers": [
+    {
+      "url": "http://localhost:3000",
+        "description": "Development server"
+     },
+     {
+         "url": "https://cart-back.alejandropardo.dev",
+        "description": "Production server"
+     }
+   ],
+```
+
+In `Dockerfile`, run `rails credentials:edit` and copy the key into the `SECRET_KEY_BASE` on `Dockerfile` and just run:
+
+```bash
+sudo docker build -t cart-back .
+sudo docker run -p 8333:9292 cart-back
+```
+
+and the application should be started on port 8333.
+
 ## Deployed Version
 
 ### Live Link
