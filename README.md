@@ -1,4 +1,4 @@
-# Technical Interview: Cash Register
+# Cash Register
 
 ## Overview
 
